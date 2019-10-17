@@ -10,7 +10,7 @@
 
   <groupId>com.github.markusbernhardt</groupId>
   <artifactId>proxy-vole</artifactId>
-  <version>1.0.6-SNAPSHOT</version>
+  <version>1.0.6-LOXIA-1</version>
 
   <name>Proxy Vole</name>
   <description>Proxy Vole is a Java library to auto detect the platform network proxy settings.</description>
@@ -20,9 +20,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <downloadSources>true</downloadSources>
     <downloadJavadocs>true</downloadJavadocs>
-    <java.version>1.6</java.version>
+    <java.version>1.8</java.version>
   </properties>
-
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>Releases</name>
+      <url>https://nexus.rigd-loxia.nl/repository/thirdparty/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Snapshots</name>
+      <url>https://nexus.rigd-loxia.nl/repository/Snapshots/</url>
+      <uniqueVersion>false</uniqueVersion>
+    </snapshotRepository>
+  </distributionManagement>
   <scm>
     <url>https://github.com/MarkusBernhardt/proxy-vole</url>
     <connection>scm:git://github.com/MarkusBernhardt/proxy-vole.git</connection>
@@ -97,7 +109,7 @@
       <dependency>
         <groupId>org.javadelight</groupId>
         <artifactId>delight-nashorn-sandbox</artifactId>
-        <version>0.1.14</version>
+        <version>0.1.26</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -133,7 +145,7 @@
         <!-- set the compile target, optimize -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.8.1</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
@@ -157,7 +169,7 @@
         <!-- compress and index the generated jar files -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
+        <version>3.1.2</version>
         <configuration>
           <archive>
             <compress>true</compress>
@@ -184,7 +196,10 @@
         <!-- build the optional javadoc.jar -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.3</version>
+        <version>3.1.1</version>
+        <configuration>
+          <source>8</source>
+        </configuration>
         <executions>
           <execution>
             <id>jar</id>
@@ -199,7 +214,7 @@
         <!-- Build the fat jar with all dependencies -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.6</version>
+        <version>3.1.0</version>
         <configuration>
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>

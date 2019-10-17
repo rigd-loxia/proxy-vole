@@ -40,7 +40,7 @@ import org.xml.sax.SAXException;
  * provides a simple way to convert a nested {@code Map<String, Object>} into an
  * xml plist representation.
  * <p>
- * The following mapping will be done when converting from plist to <tt>Map</tt>
+ * The following mapping will be done when converting from plist to <code>Map</code>
  * :
  * 
  * <pre>
